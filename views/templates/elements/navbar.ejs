@@ -1,0 +1,19 @@
+<nav>
+  <h1>
+    <a href="/">Sports Scheduler</a>
+  </h1>
+  <% if (player) { %>
+  <ul class="nav-buttons">
+    <li class="player-name">
+      <%= player.playername.charAt(0).toUpperCase() + player.playername.slice(1)
+      %>👋
+    </li>
+    <li class="link-button-secondary btn-logout">Logout</li>
+  </ul>
+  <% } else { %>
+  <ul class="nav-buttons">
+    <li><a href="/login" class="link-button-primary">Login</a></li>
+    <li><a href="/register" class="link-button-secondary">Register</a></li>
+  </ul>
+  <% } %>
+</nav>

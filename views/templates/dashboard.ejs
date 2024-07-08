@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sports Scheduler | <%= title %></title>
+    <link rel="stylesheet" href="./../styles/homepage.css" />
+    <link rel="stylesheet" href="./../styles/navbar.css" />
+    <link rel="stylesheet" href="./../styles/dashboard.css" />
+    <link rel="shortcut icon" href="./../images/icon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="popup">
+        <div class="popup-header">
+          <h3>Create Event</h3>
+          <button class="popup-close-btn">&Cross;</button>
+        </div>
+        <div class="popup-body">
+          <form method="post" class="popup-form">
+            <div class="popup-input-elements">
+              <label for="session-name">Event Name</label>
+              <input
+                type="text"
+                id="session-name"
+                name="session-name"
+                required
+                autocomplete="off"
+                placeholder="Riders Session"
+              />
+            </div>
+            <div class="popup-input-dropdown">
+              <label for="session-sport">Sport</label>
+              <select id="session-sport" name="session-sport" required>
+                <option value="football">Football</option>
+                <option value="basketball">Basketball</option>
+                <option value="volleyball">Volleyball</option>
+                <option value="tennis">Tennis</option>
+                <option value="cricket">Cricket</option>
+              </select>
+            </div>
+
+            <div class="popup-input-dates">
+              <div class="popup-input-date">
+                <label for="max-players">Max Players</label>
+                <input
+                  type="text"
+                  id="max-players"
+                  name="maxPlayers"
+                  required
+                  autocomplete="off"
+                  placeholder="10"
+                />
+              </div>
+              <div class="popup-input-date">
+                <label for="location">Location</label>
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  required
+                  autocomplete="off"
+                  placeholder="like a park or a stadium"
+                />
+              </div>
+            </div>
+            <div class="popup-input-dates">
+              <div class="popup-input-date">
+                <label for="session-date">Start</label>
+                <input
+                  type="date"
+                  id="session-date"
+                  name="session-date"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+              <div class="popup-input-date">
+                <label for="session-date">End</label>
+                <input
+                  type="date"
+                  id="session-date"
+                  name="session-date"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+            <div class="popup-input-elements">
+              <label for="descrition"> Description </label>
+              <textarea
+                id="description"
+                name="description"
+                required
+                autocomplete="off"
+                placeholder="Description of the event"
+              ></textarea>
+            </div>
+            <button
+              class="link-button-secondary btn-create-session"
+              type="submit"
+            >
+              Create
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%- include('./elements/navbar', {player}) %>
+    <div class="session-container">
+      <div class="session-container-header">
+        <h1>Dashboard</h1>
+        <% if (player.role === "admin") { %>
+        <button class="link-button-secondary new-session-btn">
+          &plus; Add Event
+        </button>
+        <% } %>
+      </div>
+      <div class="session-container-body"></div>
+    </div>
+  </body>
+  <script type="module" src="./../js/dashboard.js"></script>
+</html>

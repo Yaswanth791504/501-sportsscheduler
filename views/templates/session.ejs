@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sports Scheduler | <%= title %></title>
+    <link rel="stylesheet" href="./../styles/homepage.css" />
+    <link rel="stylesheet" href="./../styles/navbar.css" />
+    <link rel="stylesheet" href="./../styles/session.css" />
+    <link rel="stylesheet" href="./../styles/dashboard.css" />
+    <link rel="shortcut icon" href="./../images/icon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <%- include('./elements/navbar', {player}) %>
+    <div class="session-container">
+      <div class="session-container-header">
+        <button class="link-button-secondary back-btn">&leftarrow;</button>
+      </div>
+      <div class="event-body">
+        <div class="event-body-header">
+          <h2><%- session.title %></h2>
+          <img src="./../images/heart-fill.png" alt="" />
+        </div>
+        <div class="event-details">
+          <h2>Details</h2>
+          <div class="event-detail">
+            <div>
+              <h3>Sport:</h3>
+              <p><%- session.game %></p>
+            </div>
+            <div>
+              <h3>Current players / vacencies :</h3>
+              <p>
+                <%- session.currentPlayers + "/" + (session.maxPlayers -
+                session.currentPlayers) %>
+              </p>
+            </div>
+          </div>
+          <div class="event-detail">
+            <div>
+              <h3>Max Players:</h3>
+              <p><%- session.maxPlayers %></p>
+            </div>
+            <div>
+              <h3>Location:</h3>
+              <p><%- session.location %></p>
+            </div>
+          </div>
+          <div class="event-detail">
+            <div>
+              <h3>start:</h3>
+              <p><%- session.start %></p>
+            </div>
+            <div>
+              <h3>duration / end:</h3>
+              <p><%- session.duration + " days / " + session.end %></p>
+            </div>
+          </div>
+          <div class="event-detail">
+            <div>
+              <h4><%- session.description %></h4>
+            </div>
+            <div>
+              <% if (!session.sessionMemberIds.includes(player.id)) { %>
+              <button class="link-button-secondary stretch-class join-session">
+                Join Session
+              </button>
+              <% } else { %>
+              <button class="link-button-secondary stretch-class leave-session">
+                Leave Session
+              </button>
+              <% } %> <% if(session.createdBy === player.id) { %>
+              <button
+                class="link-button-secondary stretch-class delete-session"
+              >
+                Delete Session
+              </button>
+              <% } %>
+            </div>
+          </div>
+        </div>
+        <div class="event-players">
+          <h2>Players</h2>
+          <% if(session.sessionMemberIds.length > 0) { %> <%
+          session.sessionMembers.forEach(member => { %>
+          <div class="player-card">
+            <p><%- member.playername %></p>
+          </div>
+          <% }) %> <% } else { %>
+          <p>No players yet</p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="./../js/session.js"></script>
+</html>

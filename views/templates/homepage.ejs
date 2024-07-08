@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sports Scheduler | <%= title %></title>
+    <link rel="shortcut icon" href="./../images/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./../styles/homepage.css" />
+    <link rel="stylesheet" href="./../styles/navbar.css" />
+  </head>
+  <body>
+    <%- include('./elements/navbar' ) %>
+    <div class="container">
+      <h1>Welcome to Sports Scheduler</h1>
+      <p>Plan and organize your sports events with ease!</p>
+      <a href="<%= player ? '/dashboard' : '/login' %>"
+        ><button class="link-button-primary get-started-button">
+          Get Started
+        </button></a
+      >
+    </div>
+    <div class="sports-info">
+      <h2>Sports Information</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="./../images/ronaldo.jpg" alt="ronaldo" class="card-image" />
+          <div class="card-content">
+            <h3>Foot Ball</h3>
+            <p>
+              Foot Ball is a game involving two teams trying to maneuver the
+              ball into the other team's goal without using their hands or arms.
+            </p>
+            <button class="link-button-secondary">
+              <a href="https://en.wikipedia.org/wiki/FootBall" target="_blank"
+                >Learn More</a
+              >
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./../images/dhoni.webp" alt="dhoni" class="card-image" />
+          <div class="card-content">
+            <h3>Cricket</h3>
+            <p>
+              Cricket is a bat-and-ball game that is played between two teams of
+              eleven players on a field.
+            </p>
+            <button class="link-button-secondary">
+              <a href="https://en.wikipedia.org/wiki/Cricket" target="_blank"
+                >Learn More</a
+              >
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./../images/pardeep.webp"
+            alt="pardeep"
+            class="card-image"
+          />
+          <div class="card-content">
+            <h3>Kabaddi</h3>
+            <p>
+              Kabaddi is basically a combative sport, with seven players on each
+              side; played for a period of 40 minutes with a 5 minutes break
+              (20-5-20).
+            </p>
+            <button class="link-button-secondary">
+              <a href="https://en.wikipedia.org/wiki/kabaddi" target="_blank"
+                >Learn More</a
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="./../js/index.js"></script>
+</html>

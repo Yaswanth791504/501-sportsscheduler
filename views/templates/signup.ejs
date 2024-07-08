@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sports Scheduler | <%= title %></title>
+    <link rel="shortcut icon" href="./../images/icon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="./../styles/homepage.css" />
+    <link rel="stylesheet" href="./../styles/login.css" />
+    <style>
+      input[type="checkbox"] {
+        accent-color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="login-main">
+      <div class="first-section">
+        <p><a href="/">&LeftArrow;</a></p>
+        <h1>Sports Scheduler</h1>
+        <p><%= title %></p>
+        <img src="./../images/login-football.png" alt="" />
+      </div>
+      <div class="second-section">
+        <h2>A New User, Hurray!😘</h2>
+        <div class="login-form">
+          <form class="user-signup-form" method="post">
+            <div class="input-elements">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="playername"
+                required
+                placeholder="user1234"
+                autocomplete="off"
+              />
+            </div>
+            <div class="input-elements">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="user@example.com"
+                autocomplete="off"
+              />
+            </div>
+            <div class="input-elements">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                placeholder="*******"
+                autocomplete="off"
+              />
+            </div>
+            <div class="input-elements">
+              <div class="checkbox">
+                <input
+                type="checkbox"
+                id="admin"
+                name="admin"
+              />
+              <label for="admin">Admin</label>
+              </div>
+            <button class="link-button-secondary btn-signup" type="submit">
+              Register
+            </button>
+          </form>
+          <p>Already have an account? <a href="/login">Login</a></p>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script type="module" src="./../js/signup.js"></script>
+</html>
